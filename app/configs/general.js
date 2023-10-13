@@ -1,0 +1,24 @@
+const DOT_ENV_OBJECT = {};
+
+DOT_ENV_OBJECT.MONGO_URL = process.env.MONGO_URL;
+DOT_ENV_OBJECT.MONGO_OBJECT = {};
+
+if (process.env.MONGO_USER) {
+    DOT_ENV_OBJECT.MONGO_OBJECT = {
+        auth: { source: "admin" },
+        user: process.env.MONGO_USER,
+        pass: process.env.MONGO_PASS,
+    };
+}
+
+DOT_ENV_OBJECT.PORT = process.env.PORT;
+DOT_ENV_OBJECT.REDIS_PORT = process.env.REDIS_PORT;
+DOT_ENV_OBJECT.REDIS_URL = process.env.REDIS_URL;
+DOT_ENV_OBJECT.HAS_CLUSTER = process.env.HAS_CLUSTER === "true";
+DOT_ENV_OBJECT.SESSION_SECRET_KEY = process.env.SESSION_SECRET_KEY;
+DOT_ENV_OBJECT.SESSION_LIFETIME = Number(process.env.SESSION_LIFETIME_DAYS) * 86400 * 1000 || 7 * 86400 * 1000;
+
+DOT_ENV_OBJECT.SUPER_ADMIN_USER = process.env.SUPER_ADMIN_USER;
+DOT_ENV_OBJECT.SUPER_ADMIN_PASSWORD = process.env.SUPER_ADMIN_PASSWORD;
+
+module.exports = DOT_ENV_OBJECT;

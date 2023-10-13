@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+  nodejs-app:
+    build: "./app"
+    container_name: ehya_v3
+    restart: always
+    ports:
+      - 8000:8000
+    depends_on:
+      - mongo
+      - redis
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/main_database
+      - MONGO_USER=
+      - MONGO_PASS=
+      - REDIS_URL=redis
+      - REDIS_PORT=6379
+      - REDIS_IP=127.0.0.1
+
+  mongo:
+    image: mongo
+    container_name: mongodb_v3
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - type: bind
+        source: './volumes/db'
+        target: '/data/db'
+
+  redis:
+    image: redis
+    container_name: redis_v3
+    restart: always
+    ports:
+      - '6379:6379'
+    logging:
+      driver: none
