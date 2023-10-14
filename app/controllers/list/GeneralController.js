@@ -17,8 +17,6 @@ class GeneralController {
     async getMenu(req, res, next) {
         try {
             const { locale } = req
-
-            console.log({ locale });
             const menu = await Services.generalServices.getMenu(locale);
             return res.send(menu);
         } catch (e) {

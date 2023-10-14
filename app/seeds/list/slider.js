@@ -4,9 +4,9 @@ const sliderObject = [
     {
         locale: "fa-IR",
         slides: [
-            { image: "image_1", title: "ماشین بیهوشی EDP-Neptune", description: "اولین دستگاه CT Scan تولید شده در ایران", link: "/link" },
-            { image: "image_2", title: "ماشین بیهوشی EDP-Neptune", description: "اولین دستگاه CT Scan تولید شده در ایران", link: "/link" },
-            { image: "image_3", title: "ماشین بیهوشی EDP-Neptune", description: "اولین دستگاه CT Scan تولید شده در ایران", link: "/link" },
+            { image: "image_1.jpg", title: "ماشین بیهوشی EDP-Neptune", description: "اولین دستگاه CT Scan تولید شده در ایران", link: "/link" },
+            { image: "image_2.jpg", title: "ماشین بیهوشی EDP-Neptune", description: "اولین دستگاه CT Scan تولید شده در ایران", link: "/link" },
+            { image: "image_3.jpg", title: "ماشین بیهوشی EDP-Neptune", description: "اولین دستگاه CT Scan تولید شده در ایران", link: "/link" },
         ],
     },
 ];

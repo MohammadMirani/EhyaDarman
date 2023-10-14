@@ -22,6 +22,7 @@ async function server(redisClient) {
             app.use(express.urlencoded({ extended: false }));
             app.set("views", path.join(__dirname, "../views"));
             app.set("view engine", "ejs");
+            app.use(express.static('../public'));
             // app.use(cookieParser());
 
             app.use(
@@ -44,6 +45,7 @@ async function server(redisClient) {
             app.use(passport.session());
 
             app.use(languageMiddleware);
+
             app.use("/", routerIndex);
 
             //todo
@@ -90,10 +92,9 @@ module.exports = server;
 const languageMiddleware = async (req, res, next) => {
     const acceptedLanguages = req.headers["accept-language"];
     //todo
-    // if (supportedLanguages.includes(acceptedLanguages?.split(",")[0])) {
-    //     req.locale = acceptedLanguages.split(",")[0];
-    // } else
-        if (req.ip !== "::1") {
+    if (supportedLanguages.includes(acceptedLanguages?.split(",")[0])) {
+        req.locale = acceptedLanguages.split(",")[0];
+    } else if (req.ip !== "::1") {
         const result = await authServices.getGeoLocation(req.ip);
         req.locale = result
     } else {
