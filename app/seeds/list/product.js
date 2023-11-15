@@ -2,50 +2,50 @@ const Models = require("../../mongo/models");
 
 const productsObject = [
     {
-        code: "EDP-1",
+        code: "01-EDP-TS",
         name: [
             {
-                value: "EDP-Advance",
+                value: "01-EDP-TS",
                 locale: "fa-IR",
             },
         ],
-        defaultImage: "defaultImage1",
+        defaultImage: "default.png",
         smallImage: "smallImage1",
         isBookmarked: true,
     },
     {
-        code: "EDP-2",
+        code: "23-IntuBrite-VLS6600",
         name: [
             {
                 value: "EDP-TS NEO",
                 locale: "fa-IR",
             },
         ],
-        defaultImage: "defaultImage2",
+        defaultImage: "default.png",
         smallImage: "smallImage2",
         isBookmarked: true,
     },
     {
-        code: "EDP-3",
+        code: "25-Neusoft-CT 16 Slice",
         name: [
             {
                 value: "NeuViz 16 Classic CT NeuViz 16 Classic CT",
                 locale: "fa-IR",
             },
         ],
-        defaultImage: "defaultImage1",
+        defaultImage: "default.png",
         smallImage: "smallImage1",
         isBookmarked: true,
     },
     {
-        code: "EDP-4",
+        code: "31-Neusoft-CT 64 Slice",
         name: [
             {
                 value: "NeuViz 16 Essence CT",
                 locale: "fa-IR",
             },
         ],
-        defaultImage: "defaultImage1",
+        defaultImage: "default.png",
         smallImage: "smallImage1",
         isBookmarked: true,
     },
@@ -59,7 +59,7 @@ const productsObject = [
         ],
         defaultImage: "defaultImage1",
         smallImage: "smallImage1",
-        isBookmarked: true,
+        isBookmarked: false,
     },
     {
         code: "EDP-6",
@@ -71,7 +71,7 @@ const productsObject = [
         ],
         defaultImage: "defaultImage1",
         smallImage: "smallImage1",
-        isBookmarked: true,
+        isBookmarked: false,
     },
     {
         code: "EDP-7",
@@ -83,7 +83,7 @@ const productsObject = [
         ],
         defaultImage: "defaultImage1",
         smallImage: "smallImage1",
-        isBookmarked: true,
+        isBookmarked: false,
     },
     {
         code: "EDP-8",
@@ -95,7 +95,7 @@ const productsObject = [
         ],
         defaultImage: "defaultImage1",
         smallImage: "smallImage1",
-        isBookmarked: true,
+        isBookmarked: false,
     },
     {
         code: "EDP-9",
@@ -107,7 +107,7 @@ const productsObject = [
         ],
         defaultImage: "defaultImage1",
         smallImage: "smallImage1",
-        isBookmarked: true,
+        isBookmarked: false,
     },
     {
         code: "EDP-10",
@@ -119,7 +119,7 @@ const productsObject = [
         ],
         defaultImage: "defaultImage1",
         smallImage: "smallImage1",
-        isBookmarked: true,
+        isBookmarked: false,
     },
 ];
 

@@ -70,7 +70,7 @@ authService.getGeoLocation = async (ip) => {
                 const localeObject = {
                     IR: "fa-IR",
                 };
-                console.log(JSON.parse(data));
+                // console.log(JSON.parse(data));
                 const locale = localeObject[JSON.parse(data).country] || "en-US";
                 resolve(locale);
             });

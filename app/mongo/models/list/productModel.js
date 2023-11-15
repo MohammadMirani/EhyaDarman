@@ -48,6 +48,7 @@ const productSchema = new mongoose.Schema(
         isActive: Boolean,
         toBeOffered: [{ ref: mongoose.Types.ObjectId, code: String }],
         similarProducts: [{ ref: mongoose.Types.ObjectId, code: String }],
+        shortDescription: [{ value: String, locale: String }],
         description: [{ value: String, locale: String }],
         introduction: [{ value: String, locale: String }],
         uniqueProperties: [{ locale: String, items: [{ value: String, order: Number }] }],

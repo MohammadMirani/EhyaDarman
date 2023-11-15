@@ -91,14 +91,15 @@ module.exports = server;
 // Language middleware
 const languageMiddleware = async (req, res, next) => {
     const acceptedLanguages = req.headers["accept-language"];
+    req.locale = "fa-IR"
     //todo
-    if (supportedLanguages.includes(acceptedLanguages?.split(",")[0])) {
-        req.locale = acceptedLanguages.split(",")[0];
-    } else if (req.ip !== "::1") {
-        const result = await authServices.getGeoLocation(req.ip);
-        req.locale = result
-    } else {
-        req.locale = "fa-IR"; // Default to English if language not supported
-    }
+    // if (supportedLanguages.includes(acceptedLanguages?.split(",")[0])) {
+    //     req.locale = acceptedLanguages.split(",")[0];
+    // } else if (req.ip !== "::1") {
+    //     const result = await authServices.getGeoLocation(req.ip);
+    //     req.locale = result
+    // } else {
+    //     req.locale = "fa-IR"; // Default to English if language not supported
+    // }
     next();
 };

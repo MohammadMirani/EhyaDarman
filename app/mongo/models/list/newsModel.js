@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const jalali = require('jalali-moment');
+
 const newsSchema = new mongoose.Schema(
     {
         code: { type: String, required: true, unique: true },
@@ -18,6 +20,7 @@ const newsSchema = new mongoose.Schema(
     },
     { timestamps: true },
 );
+
 
 const newsModel = mongoose.model("news", newsSchema);
 

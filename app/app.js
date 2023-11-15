@@ -5,18 +5,18 @@ const server = require("./server/server.js");
 const mongoDB = require("./cors/mongoDbConnection");
 const redisConnection = require("./cors/redisConnection");
 
+
 const app = new Promise(async (resolve, reject) => {
     try {
         console.log("*********************");
-        console.log(process.env.MONGO_URL);
+
         await mongoDB();
         console.log("=======================================");
         const redisClient = await redisConnection();
         console.log("=======================================");
         await require("./seeds/index");
         console.log("=======================================");
-        await server(redisClient); //todo make it to cluster
-        // await server();
+        await server(redisClient); //todo make it cluster
         console.log("============= Done ====================");
 
         resolve("[+] Application is lunched successfully.");

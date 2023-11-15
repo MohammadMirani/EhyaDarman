@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const footerSchema = new mongoose.Schema(
   {
     locale: String,
-    products: [
+    productsCategory: [
       {
         item: String,
         link: String,

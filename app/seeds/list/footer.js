@@ -46,7 +46,7 @@ const footerObject = [
         link: "",
       },
     ],
-    products: [
+    productsCategory: [
       {
         item: "دستگاه تنفسی بیمارستانی",
         link: "link",

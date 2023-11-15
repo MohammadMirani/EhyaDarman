@@ -72,13 +72,14 @@ generalRepository.getFooter = async (locale) => {
       .match({ locale: locale })
       .project({
         locale: 1,
-        products: {
+        _id: 0,
+        productsCategory: {
           $map: {
-            input: "$products",
-            as: "product",
+            input: "$productsCategory",
+            as: "category",
             in: {
-              item: "$$product.item",
-              link: "$$product.link",
+              item: "$$category.item",
+              link: "$$category.link",
             },
           },
         },
@@ -128,18 +129,17 @@ generalRepository.getFooter = async (locale) => {
 
 generalRepository.getSlider = async (locale) => {
   try {
-    console.log(DOT_ENV.IMAGE_URL);
     return await Models.Slider.aggregate()
       .match({ locale: locale })
       .project({
         locale: 1,
-        _id :0,
+        _id: 0,
         slides: {
           $map: {
             input: "$slides",
             as: "item",
             in: {
-              image: { $concat: [DOT_ENV.IMAGE_URL, "/", "$$item.image"] },
+              image: { $concat: [DOT_ENV.DOCS_URL, "/slider/", "$$item.image"] },
               title: "$$item.title",
               description: "$$item.description",
               link: "$$item.link",
@@ -158,7 +158,14 @@ generalRepository.getBookmarkedPartners = async (locale) => {
     return await Models.Partners.aggregate()
       .match({ isBookmarked: true, "name.locale": locale })
       .unwind({ path: "$name" })
-      .addFields({ name: "$name.value" });
+      .addFields({ name: "$name.value" })
+      .project({
+        icon: 1,
+        title: 1,
+        name: 1,
+        isBookmarked: 1,
+        _id: 0,
+      });
   } catch (e) {
     console.error("generalRepository.getBookmarkedPartners", e);
     throw e;
@@ -167,7 +174,25 @@ generalRepository.getBookmarkedPartners = async (locale) => {
 
 generalRepository.getSummaryCompanyInfo = async (locale) => {
   try {
-    return await Models.CompanyInfo.aggregate().match({ locale: locale });
+    return await Models.CompanyInfo.aggregate()
+      .match({ locale: locale })
+      .project({
+        _id: 0,
+        createdAt: 1,
+        info: {
+          $map: {
+            input: "$info",
+            as: "item",
+            in: {
+              title: "$$item.title",
+              shortDescription: "$$item.shortDescription",
+              description: "$$item.description",
+              smallImage: "$$item.smallImage",
+              image: "$$item.image",
+            },
+          },
+        },
+      });
   } catch (e) {
     console.error("generalRepository.getSummaryCompanyIno", e);
     throw e;
