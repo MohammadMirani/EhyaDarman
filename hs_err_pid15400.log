@@ -1,0 +1,197 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 201326592 bytes for Failed to commit area from 0x0000000741c00000 to 0x000000074dc00000 of length 201326592.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./src/hotspot/os/windows/os_windows.cpp:3619), pid=15400, tid=17148
+#
+# JRE version:  (11.0.13+7) (build )
+# Java VM: OpenJDK 64-Bit Server VM (11.0.13+7-b1751.25, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: git4idea.http.GitAskPassApp Username for 'https://github.com': 
+
+Host: Intel(R) Core(TM) i7-4710HQ CPU @ 2.50GHz, 8 cores, 11G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3570)
+Time: Thu Nov 16 01:03:55 2023 Iran Standard Time elapsed time: 0.011030 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000246e1b51000):  JavaThread "Unknown thread" [_thread_in_vm, id=17148, stack(0x000000707dd00000,0x000000707de00000)]
+
+Stack: [0x000000707dd00000,0x000000707de00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x613daa]
+V  [jvm.dll+0x799b30]
+V  [jvm.dll+0x79b14d]
+V  [jvm.dll+0x79b823]
+V  [jvm.dll+0x24c958]
+V  [jvm.dll+0x610e24]
+V  [jvm.dll+0x605b25]
+V  [jvm.dll+0x30aaab]
+V  [jvm.dll+0x30aa1a]
+V  [jvm.dll+0x30a8f2]
+V  [jvm.dll+0x30f856]
+V  [jvm.dll+0x359143]
+V  [jvm.dll+0x359846]
+V  [jvm.dll+0x359243]
+V  [jvm.dll+0x2e57a8]
+V  [jvm.dll+0x2e6947]
+V  [jvm.dll+0x776d47]
+V  [jvm.dll+0x77853c]
+V  [jvm.dll+0x3666c9]
+V  [jvm.dll+0x75a9ce]
+V  [jvm.dll+0x3d47d3]
+V  [jvm.dll+0x3d6d21]
+C  [jli.dll+0x536b]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17344]
+C  [ntdll.dll+0x526b1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00000246dfab5ad0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x00000246e1b6a000 GCTaskThread "GC Thread#0" [stack: 0x000000707de00000,0x000000707df00000] [id=19016]
+  0x00000246e1bb3800 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000707df00000,0x000000707e000000] [id=17556]
+  0x00000246e1bb5800 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000707e000000,0x000000707e100000] [id=16280]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff93f285c97]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000246e1b4e2e0] Heap_lock - owner thread: 0x00000246e1b51000
+
+Heap address: 0x0000000741c00000, size: 3044 MB, Compressed Oops mode: Non-zero based: 0x0000000741c00000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.006 Loaded shared library C:\Program Files\JetBrains\WebStorm 2021.3.2\jbr\bin\zip.dll
+
+
+Dynamic libraries:
+0x00007ff768300000 - 0x00007ff76830a000 	C:\Program Files\JetBrains\WebStorm 2021.3.2\jbr\bin\java.exe
+0x00007ff9aec50000 - 0x00007ff9aee47000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff9acfc0000 - 0x00007ff9ad07d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff9ac600000 - 0x00007ff9ac8f6000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff9ac930000 - 0x00007ff9aca30000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff9888e0000 - 0x00007ff9888f9000 	C:\Program Files\JetBrains\WebStorm 2021.3.2\jbr\bin\jli.dll
+0x00007ff97fc00000 - 0x00007ff97fc17000 	C:\Program Files\JetBrains\WebStorm 2021.3.2\jbr\bin\VCRUNTIME140.dll
+0x00007ff9ad6e0000 - 0x00007ff9ad87e000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff9ac900000 - 0x00007ff9ac922000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff99a610000 - 0x00007ff99a8aa000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3570_none_60bb2a3971f3e41a\COMCTL32.dll
+0x00007ff9acf90000 - 0x00007ff9acfbc000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff9add10000 - 0x00007ff9addae000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff9ac3f0000 - 0x00007ff9ac50a000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff9ac510000 - 0x00007ff9ac5ad000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff9ad640000 - 0x00007ff9ad670000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff973c60000 - 0x00007ff973cfd000 	C:\Program Files\JetBrains\WebStorm 2021.3.2\jbr\bin\msvcp140.dll
+0x00007ff93ef90000 - 0x00007ff93fb06000 	C:\Program Files\JetBrains\WebStorm 2021.3.2\jbr\bin\server\jvm.dll
+0x00007ff9ad230000 - 0x00007ff9ad2de000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff9aeab0000 - 0x00007ff9aeb4c000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff9acdf0000 - 0x00007ff9acf16000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff9ad6d0000 - 0x00007ff9ad6d8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff996750000 - 0x00007ff996759000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff99f760000 - 0x00007ff99f787000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff99fd40000 - 0x00007ff99fd4a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff9acf20000 - 0x00007ff9acf8b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff9aa190000 - 0x00007ff9aa1a2000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff993270000 - 0x00007ff993281000 	C:\Program Files\JetBrains\WebStorm 2021.3.2\jbr\bin\verify.dll
+0x00007ff9a7aa0000 - 0x00007ff9a7c84000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff9a7960000 - 0x00007ff9a7994000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff9ac330000 - 0x00007ff9ac3b2000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff98ca60000 - 0x00007ff98ca89000 	C:\Program Files\JetBrains\WebStorm 2021.3.2\jbr\bin\java.dll
+0x00007ff98ee10000 - 0x00007ff98ee1b000 	C:\Program Files\JetBrains\WebStorm 2021.3.2\jbr\bin\jimage.dll
+0x00007ff988420000 - 0x00007ff988438000 	C:\Program Files\JetBrains\WebStorm 2021.3.2\jbr\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\JetBrains\WebStorm 2021.3.2\jbr\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3570_none_60bb2a3971f3e41a;C:\Program Files\JetBrains\WebStorm 2021.3.2\jbr\bin\server
+
+VM Arguments:
+java_command: git4idea.http.GitAskPassApp Username for 'https://github.com': 
+java_class_path (initial): C:/Program Files/JetBrains/WebStorm 2021.3.2/plugins/git4idea/lib/git4idea-rt.jar;C:/Program Files/JetBrains/WebStorm 2021.3.2/lib/3rd-party.jar;C:/Program Files/JetBrains/WebStorm 2021.3.2/lib/3rd-party-rt.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 201326592                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 3191865344                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Program Files\Git\mingw64\libexec\git-core;C:\Program Files\Git\mingw64\libexec\git-core;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Mohammad\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\nodejs;C:\Program Files\PostgreSQL\14\bin;C:\Program Files\Git\cmd;C:\Program Files\MongoDB\Server\5.0\bin;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Program Files\Redis;C:\Program Files\PuTTY;C:\Program Files (x86)\GnuPG\bin;C:\Program Files\Tesseract-OCR;C:\Program Files\dotnet;C:\Program Files\Cloudflare\Cloudflare WARP;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\nodejs;C:\Program Files\PostgreSQL\14\bin;C:\Program Files\Git\cmd;C:\Program Files\MongoDB\Server\5.0\bin;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Program Files\Redis;C:\Program Files\PuTTY;C:\Program Files (x86)\GnuPG\bin;C:\Program Files\Tesseract-OCR;C:\Program Files\dotnet;C:\Program Files\Cloudflare\Cloudflare WARP;C:\Program Files\Docker\Docker\resources\bin;C:\Users\Mohammad\AppData\Local\Programs\Python\Python311\Scripts;C:\Users\Mohammad\AppData\Local\Programs\Python\Python311;C:\Users\Mohammad\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm 2021.3.2\bin;C:\Program Files\JetBrains\WebStorm 2021.3.2\bin;C:\Users\Mohammad\AppData\Roaming\npm;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon
+USERNAME=Mohammad
+DISPLAY=:0.0
+LC_ALL=en_US.UTF-8
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.3570)
+OS uptime: 0 days 18:10 hours
+Hyper-V role detected
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 60 stepping 3 microcode 0x27, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, fma
+
+Memory: 4k page, system-wide physical 12171M (2669M free)
+TotalPageFile size 15171M (AvailPageFile size 193M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 60M, peak: 252M
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.13+7-b1751.25) for windows-amd64 JRE (11.0.13+7-b1751.25), built on Jan 13 2022 20:47:27 by "" with MS VC++ 14.0 (VS2015)
+
+END.

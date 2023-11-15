@@ -8,7 +8,8 @@ authRouter.post("/login", validationMiddleWare(authSchema.login, "body"), authCo
 authRouter.post("/logout", authController.logout);
 authRouter.get("/checkAuth", authController.checkAuth);
 authRouter.get("/switchSite",authController.switchSite);
-authRouter.post("/signup", validationMiddleWare(authSchema.signup , "body"), authController.signup);
 authRouter.post("/sendOtp", validationMiddleWare(authSchema.sendOtp , "body"), authController.sendOtp);
+authRouter.post("/loginWithOtp", validationMiddleWare(authSchema.loginWithOtp , "body"), authController.loginWithOtp);
+authRouter.post("/signup", validationMiddleWare(authSchema.signup , "body"), authController.signup);
 
 module.exports = authRouter;

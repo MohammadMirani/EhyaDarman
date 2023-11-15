@@ -10,7 +10,7 @@ const customerSchema = new mongoose.Schema(
         addresses: [{}],
         nationalCode: String,
         phone: String,
-        mobile: String,
+        phone: String,
         email: String,
         isDeleted: { type: Boolean, default: false },
     },

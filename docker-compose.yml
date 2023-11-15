@@ -10,15 +10,15 @@ services:
       - mongo
       - redis
     environment:
-      - MONGO_URL=mongodb://mongo:27017/main_database
+      - MONGO_URL=mongodb://mongodb_v1/main_database_1?authSource=admin&retryWrites=true
       - REDIS_URL=redis
       - REDIS_PORT=6379
       - REDIS_IP=127.0.0.1
 
 
   mongo:
-    image: mongo:5.0-rc-focal
-    container_name: mongodb_v2
+    image: mongo
+    container_name: mongodb_v1
     restart: always
     ports:
       - 27025:27017
@@ -26,11 +26,10 @@ services:
       - type: bind
         source: './volumes/db'
         target: '/data/db'
-#      - ./mongod.conf:/etc/mongod.conf
-#    command: [ "mongod", "--config", "/etc/mongod.conf" ]
 
     environment:
-      MONGO_INITDB_DATABASE: main_database
+      MONGO_INITDB_DATABASE: main_database_1
+
 
   redis:
     image: redis
