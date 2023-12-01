@@ -2,11 +2,12 @@ const mongoose = require("mongoose");
 const companyInfoSchema = new mongoose.Schema(
     {
         locale: String,
-
         info: [
             {
+                section: String,
                 title: String,
                 shortDescription: String,
+                defaultImage : String ,
                 description: String,
                 smallImage: String,
                 image: String,

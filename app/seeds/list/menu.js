@@ -3,151 +3,111 @@ const Models = require("../../mongo/models");
 const menuObject = [
     {
         locale: "fa-IR",
-        tabs: [
+        items: [
             {
-                item: "محصولات و راه حل ها",
+                item: "محصولات",
+                link: "/link",
                 firstIndent: [
                     {
-                        name: "ره حل ها",
-                        link: "/link",
+                        item : "ونتیلاتور",
                         secondIndent: [
                             {
-                                name: "ره حل ها بیمارستانی",
+                                item: "سری SV",
                                 link: "/link",
                                 thirdIndent: [
-                                    { name: "برای ER", link: "", fourthIndent: [] },
-                                    { name: "برای ICU", link: "", fourthIndent: [] },
-                                    { name: "برای CCU", link: "", fourthIndent: [] },
-                                    { name: "برای OR", link: "", fourthIndent: [] },
+                                    { item: "NEO" },
+                                    { item: "DEOMED" },
+                                    { item: "TS" },
+                                    { item: "DION" },
                                 ],
                             },
                             {
-                                name: "مراقبت های اورژانسی",
+                                item: "سری NB",
                                 link: "/link",
-                                thirdIndent: [],
+                                thirdIndent: [
+                                    { item: "NEO" },
+                                    { item: "DEOMED" },
+                                    { item: "TS" },
+                                    { item: "DION" },
+                                ],
                             },
                             {
-                                name: "مراقبت های حیاتی",
-                                link: "/link",
-                                thirdIndent: [],
-                            },
-                            {
-                                name: "تصویربرداری پزشکی",
-                                link: "/link",
-                                thirdIndent: [],
-                            },
-                            {
-                                name: "تشخیص های آزمایشگاهی",
-                                link: "/link",
-                                thirdIndent: [],
+                                item: "دستگاه تنفس خانگی (NIV)",
+                                thirdIndent: [
+                                    { item: "ونتیلاتور پورتابل" },
+                                    { item: "BiPAP" },
+                                    { item: "CPAP" },
+                                ],
                             },
                         ],
                     },
                     {
-                        name: "محصولات",
-                        link: "/link",
+                        item: "ماشین بیهوشی",
                         secondIndent: [
                             {
-                                name: "ونتیلاتور",
+                                item: "سری A",
+                                link: "/link",
+                                thirdIndent: [{ item: "Neptune" }],
+                            },
+                            {
+                                item: "سری WATO",
+                                link: "/link",
+                                fourthIndent: [{ item: "Neptune" }],
+                            },
+                        ],
+                    },
+                    {
+                        item: "تصویربرداری",
+                        secondIndent: [
+                            {
+                                item: "رادیوگرافی دیجیتال",
+                                link: "/link",
                                 thirdIndent: [
-                                    {
-                                        name: "سری SV",
-                                        link: "/link",
-                                        fourthIndent: [
-                                            { name: "NEO" },
-                                            { name: "DEOMED" },
-                                            { name: "TS" },
-                                            { name: "DION" },
-                                        ],
-                                    },
-                                    {
-                                        name: "سری NB",
-                                        link: "/link",
-                                        fourthIndent: [
-                                            { name: "NEO" },
-                                            { name: "DEOMED" },
-                                            { name: "TS" },
-                                            { name: "DION" },
-                                        ],
-                                    },
-                                    {
-                                        name: "دستگاه تنفس خانگی (NIV)",
-                                        fourthIndent: [
-                                            { name: "ونتیلاتور پورتابل" },
-                                            { name: "BiPAP" },
-                                            { name: "CPAP" },
-                                        ],
-                                    },
+                                    { item: "CT Scan 32" },
+                                    { item: "CT Scan 128" },
+                                    { item: "CT Scan 16" },
                                 ],
                             },
                             {
-                                name: "ماشین بیهوشی",
+                                item: "رادیوگرافی موبایل",
+                                link: "/link",
                                 thirdIndent: [
-                                    {
-                                        name: "سری A",
-                                        link: "/link",
-                                        fourthIndent: [{ name: "Neptune" }],
-                                    },
-                                    {
-                                        name: "سری WATO",
-                                        link: "/link",
-                                        fourthIndent: [{ name: "Neptune" }],
-                                    },
+                                    { item: "CT Scan 32" },
+                                    { item: "CT Scan 128" },
+                                    { item: "CT Scan 16" },
                                 ],
                             },
+                        ],
+                    },
+                    {
+                        item: "ماسک",
+                        secondIndent: [
                             {
-                                name: "تصویربرداری",
-                                thirdIndent: [
-                                    {
-                                        name: "رادیوگرافی دیجیتال",
-                                        link: "/link",
-                                        fourthIndent: [
-                                            { name: "CT Scan 32" },
-                                            { name: "CT Scan 128" },
-                                            { name: "CT Scan 16" },
-                                        ],
-                                    },
-                                    {
-                                        name: "رادیوگرافی موبایل",
-                                        link: "/link",
-                                        fourthIndent: [
-                                            { name: "CT Scan 32" },
-                                            { name: "CT Scan 128" },
-                                            { name: "CT Scan 16" },
-                                        ],
-                                    },
-                                ],
+                                item: "Vented",
+                                thirdIndent: [{ item: "Vented_1" }, { item: "Vented_2" }],
                             },
                             {
-                                name: "ماسک",
-                                thirdIndent: [
-                                    {
-                                        name: "Vented",
-                                        fourthIndent: [{ name: "Vented_1" }, { name: "Vented_2" }],
-                                    },
-                                    {
-                                        name: "Non Vented",
-                                        fourthIndent: [{ name: "Vented_3" }, { name: "Vented_4" }],
-                                    },
-                                ],
+                                item: "Non Vented",
+                                thirdIndent: [{ item: "Vented_3" }, { item: "Vented_4" }],
                             },
                         ],
                     },
                 ],
             },
+
             {
                 item: "نوآوری",
-                firstIndent: [{ name: "نظرات مشتریان", link: "/link" }],
+                firstIndent: [{ item: "نظرات مشتریان", link: "/link" }],
             },
             {
                 item: "خدمات",
                 firstIndent: [
-                    { name: "چشم انداز", link: "/link" },
-                    { name: "خدمات پس از فروش", link: "/link" },
-                    { name: "آموزش ها", link: "/link" },
-                    { name: "مدیا سنتر", link: "/link" },
-                    { name: "تماس با ما", link: "/link" },
-                    { name: "کلینیک خواب", link: "/link" },
+                    { item: "چشم انداز", link: "/link" },
+                    { item: "خدمات پس از فروش", link: "/link" },
+                    { item: "آموزش ها", link: "/link" },
+                    { item: "مدیا سنتر", link: "/link" },
+                    { item: "تماس با ما", link: "/link" },
+                    { item: "کلینیک خواب", link: "/link" },
                 ],
             },
             {
@@ -160,142 +120,142 @@ const menuObject = [
             {
                 item: "درباره ما",
                 firstIndent: [
-                    { name: "اهداف", link: "/link" },
-                    { name: "چشم انداز", link: "/link" },
-                    { name: "تجارت ما", link: "/link" },
-                    { name: "تاریخچه", link: "/link" },
-                    { name: "فرهنگ سازمانی", link: "/link" },
+                    { item: "اهداف", link: "/link" },
+                    { item: "چشم انداز", link: "/link" },
+                    { item: "تجارت ما", link: "/link" },
+                    { item: "تاریخچه", link: "/link" },
+                    { item: "فرهنگ سازمانی", link: "/link" },
                 ],
             },
         ],
     },
     {
         locale: "en-US",
-        tabs: [
+        items: [
             {
-                item: "Products & Solutions",
+                item: "Products",
                 firstIndent: [
                     {
-                        name: "Solutions",
+                        item: "Solutions",
                         link: "/link",
                         secondIndent: [
                             {
-                                name: "Hospitalwide Solutions ",
+                                item: "Hospitalwide Solutions ",
                                 link: "/link",
                                 thirdIndent: [
-                                    { name: "for ER", link: "", fourthIndent: [] },
-                                    { name: "for ICU", link: "", fourthIndent: [] },
-                                    { name: "for CCU", link: "", fourthIndent: [] },
-                                    { name: "for OR", link: "", fourthIndent: [] },
+                                    { item: "for ER", link: "", fourthIndent: [] },
+                                    { item: "for ICU", link: "", fourthIndent: [] },
+                                    { item: "for CCU", link: "", fourthIndent: [] },
+                                    { item: "for OR", link: "", fourthIndent: [] },
                                 ],
                             },
                             {
-                                name: "Emergency Care",
+                                item: "Emergency Care",
                                 link: "/link",
                                 thirdIndent: [],
                             },
                             {
-                                name: "Critical Care",
+                                item: "Critical Care",
                                 link: "/link",
                                 thirdIndent: [],
                             },
                             {
-                                name: "Medical Imaging",
+                                item: "Medical Imaging",
                                 link: "/link",
                                 thirdIndent: [],
                             },
                             {
-                                name: "Laboratory Diagnostics",
+                                item: "Laboratory Diagnostics",
                                 link: "/link",
                                 thirdIndent: [],
                             },
                         ],
                     },
                     {
-                        name: "Products",
+                        item: "Products",
                         link: "/link",
                         secondIndent: [
                             {
-                                name: "Ventilators",
+                                item: "Ventilators",
                                 thirdIndent: [
                                     {
-                                        name: "SV Series",
+                                        item: "SV Series",
                                         link: "/link",
                                         fourthIndent: [
-                                            { name: "NEO" },
-                                            { name: "DEOMED" },
-                                            { name: "TS" },
-                                            { name: "DION" },
+                                            { item: "NEO" },
+                                            { item: "DEOMED" },
+                                            { item: "TS" },
+                                            { item: "DION" },
                                         ],
                                     },
                                     {
-                                        name: "NB Series",
+                                        item: "NB Series",
                                         link: "/link",
                                         fourthIndent: [
-                                            { name: "NEO" },
-                                            { name: "DEOMED" },
-                                            { name: "TS" },
-                                            { name: "DION" },
+                                            { item: "NEO" },
+                                            { item: "DEOMED" },
+                                            { item: "TS" },
+                                            { item: "DION" },
                                         ],
                                     },
                                     {
-                                        name: "NIV Series",
+                                        item: "NIV Series",
                                         fourthIndent: [
-                                            { name: "Portable" },
-                                            { name: "BiPAP" },
-                                            { name: "CPAP" },
+                                            { item: "Portable" },
+                                            { item: "BiPAP" },
+                                            { item: "CPAP" },
                                         ],
                                     },
                                 ],
                             },
                             {
-                                name: "Anesthesia",
+                                item: "Anesthesia",
                                 thirdIndent: [
                                     {
-                                        name: "A Series",
+                                        item: "A Series",
                                         link: "/link",
-                                        fourthIndent: [{ name: "Neptune" }],
+                                        fourthIndent: [{ item: "Neptune" }],
                                     },
                                     {
-                                        name: "WATO Series",
+                                        item: "WATO Series",
                                         link: "/link",
-                                        fourthIndent: [{ name: "Neptune" }],
+                                        fourthIndent: [{ item: "Neptune" }],
                                     },
                                 ],
                             },
                             {
-                                name: "Radiagraphy",
+                                item: "Radiagraphy",
                                 thirdIndent: [
                                     {
-                                        name: "Digital Radiography",
+                                        item: "Digital Radiography",
                                         link: "/link",
                                         fourthIndent: [
-                                            { name: "CT Scan 32" },
-                                            { name: "CT Scan 128" },
-                                            { name: "CT Scan 16" },
+                                            { item: "CT Scan 32" },
+                                            { item: "CT Scan 128" },
+                                            { item: "CT Scan 16" },
                                         ],
                                     },
                                     {
-                                        name: "Mobile Radiography",
+                                        item: "Mobile Radiography",
                                         link: "/link",
                                         fourthIndent: [
-                                            { name: "CT Scan 32" },
-                                            { name: "CT Scan 128" },
-                                            { name: "CT Scan 16" },
+                                            { item: "CT Scan 32" },
+                                            { item: "CT Scan 128" },
+                                            { item: "CT Scan 16" },
                                         ],
                                     },
                                 ],
                             },
                             {
-                                name: "Mask",
+                                item: "Mask",
                                 thirdIndent: [
                                     {
-                                        name: "Vented",
-                                        fourthIndent: [{ name: "Vented_1" }, { name: "Vented_2" }],
+                                        item: "Vented",
+                                        fourthIndent: [{ item: "Vented_1" }, { item: "Vented_2" }],
                                     },
                                     {
-                                        name: "Non Vented",
-                                        fourthIndent: [{ name: "Vented_3" }, { name: "Vented_4" }],
+                                        item: "Non Vented",
+                                        fourthIndent: [{ item: "Vented_3" }, { item: "Vented_4" }],
                                     },
                                 ],
                             },
@@ -305,17 +265,17 @@ const menuObject = [
             },
             {
                 item: "Innovation",
-                firstIndent: [{ name: "Customer Stories", link: "/link" }],
+                firstIndent: [{ item: "Customer Stories", link: "/link" }],
             },
             {
                 item: "Services",
                 firstIndent: [
-                    { name: "Overview", link: "/link" },
-                    { name: "After Sale Services", link: "/link" },
-                    { name: "Tutorials", link: "/link" },
-                    { name: "Media Center", link: "/link" },
-                    { name: "Sleeping Clinic", link: "/link" },
-                    { name: "Contact Us", link: "/link" },
+                    { item: "Overview", link: "/link" },
+                    { item: "After Sale Services", link: "/link" },
+                    { item: "Tutorials", link: "/link" },
+                    { item: "Media Center", link: "/link" },
+                    { item: "Sleeping Clinic", link: "/link" },
+                    { item: "Contact Us", link: "/link" },
                 ],
             },
             {
@@ -328,11 +288,11 @@ const menuObject = [
             {
                 item: "About Us",
                 firstIndent: [
-                    { name: "Purpose", link: "/link" },
-                    { name: "Perspective", link: "/link" },
-                    { name: "Our Bussiness", link: "/link" },
-                    { name: "History", link: "/link" },
-                    { name: "Our Culture", link: "/link" },
+                    { item: "Purpose", link: "/link" },
+                    { item: "Perspective", link: "/link" },
+                    { item: "Our Bussiness", link: "/link" },
+                    { item: "History", link: "/link" },
+                    { item: "Our Culture", link: "/link" },
                 ],
             },
         ],

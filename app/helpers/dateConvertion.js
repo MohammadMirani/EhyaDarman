@@ -5,10 +5,9 @@ function convertToPersianDate(isoDate) {
     const gregorianDate = moment(isoDate, 'YYYY-MM-DDTHH:mm:ss.SSSZ').format('YYYY-MM-DD HH:mm:ss');
 
     // Convert to Jalali (Persian) date
-    const persianDate = moment(gregorianDate, 'YYYY-MM-DD HH:mm:ss').locale('fa').format('jYYYY-jMM-jDD HH:mm:ss');
+    const persianDate = moment(gregorianDate, 'YYYY-MM-DD HH:mm:ss').locale('fa').format('jYYYY/jMM/jDD');
 
     return persianDate;
 }
-
 
 module.exports = convertToPersianDate

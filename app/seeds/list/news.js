@@ -69,7 +69,8 @@ const newsObject = [
                 locale: "fa-IR",
             },
         ],
-        Image: "image1",
+        defaultImage: "default.png",
+        image: "image1",
         smallImage: "smallImage1",
         createdBy: "user1",
         type: "article",
@@ -126,7 +127,8 @@ const newsObject = [
                 locale: "fa-IR",
             },
         ],
-        Image: "image2",
+        image: "image2",
+        defaultImage: "default.png",
         smallImage: "smallImage2",
         createdBy: "user2",
         type: "news",
@@ -143,7 +145,8 @@ const newsObject = [
                 locale: "fa-IR",
             },
         ],
-        Image: "image3",
+        image: "image3",
+        defaultImage: "default.png",
         smallImage: "smallImage3",
         createdBy: "user3",
         type: "article",
@@ -160,7 +163,9 @@ const newsObject = [
                 locale: "fa-IR",
             },
         ],
-        Image: "image4",
+        image: "image4",
+        defaultImage: "default.png",
+
         smallImage: "smallImage4",
         createdBy: "user4",
         type: "news",
@@ -177,11 +182,103 @@ const newsObject = [
                 locale: "fa-IR",
             },
         ],
-        Image: "image5",
+        image: "image5",
+        defaultImage: "default.png",
         smallImage: "smallImage5",
         createdBy: "user5",
         type: "article",
     },
+    {
+        code: "CODE-6",
+        newsContext: [
+            {
+                title: "نمایشگاه مدیکا 2019",
+                shortDescription:
+                    "نمایشگاه مدیکا آلمان معتبرترین و بزرگترین نمایشگاه جهان در زمینه محصولات و تجهیزات پزشکی می باشد که هر ساله در شهر دوسلدورف برگزار می گردد.",
+                description:
+                    "نمایشگاه مدیکا آلمان معتبرترین و بزرگترین نمایشگاه جهان در زمینه محصولات و تجهیزات پزشکی می باشد که هر ساله در شهر دوسلدورف برگزار می گردد. در سال 2019 نیز این نمایشگاه در تاریخ های 18 الی 21 نوامبر (27 الی",
+                locale: "fa-IR",
+            },
+        ],
+        image: "image5",
+        defaultImage: "default.png",
+        smallImage: "smallImage5",
+        createdBy: "user5",
+        type: "article",
+    },
+    {
+        code: "CODE-7",
+        newsContext: [
+            {
+                title: "نمایشگاه مدیکا 2019",
+                shortDescription:
+                    "نمایشگاه مدیکا آلمان معتبرترین و بزرگترین نمایشگاه جهان در زمینه محصولات و تجهیزات پزشکی می باشد که هر ساله در شهر دوسلدورف برگزار می گردد.",
+                description:
+                    "نمایشگاه مدیکا آلمان معتبرترین و بزرگترین نمایشگاه جهان در زمینه محصولات و تجهیزات پزشکی می باشد که هر ساله در شهر دوسلدورف برگزار می گردد. در سال 2019 نیز این نمایشگاه در تاریخ های 18 الی 21 نوامبر (27 الی",
+                locale: "fa-IR",
+            },
+        ],
+        image: "image5",
+        defaultImage: "default.png",
+        smallImage: "smallImage5",
+        createdBy: "user5",
+        type: "article",
+    },
+    {
+        code: "CODE-8",
+        newsContext: [
+            {
+                title: "نمایشگاه مدیکا 2019",
+                shortDescription:
+                    "نمایشگاه مدیکا آلمان معتبرترین و بزرگترین نمایشگاه جهان در زمینه محصولات و تجهیزات پزشکی می باشد که هر ساله در شهر دوسلدورف برگزار می گردد.",
+                description:
+                    "نمایشگاه مدیکا آلمان معتبرترین و بزرگترین نمایشگاه جهان در زمینه محصولات و تجهیزات پزشکی می باشد که هر ساله در شهر دوسلدورف برگزار می گردد. در سال 2019 نیز این نمایشگاه در تاریخ های 18 الی 21 نوامبر (27 الی",
+                locale: "fa-IR",
+            },
+        ],
+        image: "image5",
+        defaultImage: "default.png",
+        smallImage: "smallImage5",
+        createdBy: "user5",
+        type: "article",
+    },
+    {
+        code: "CODE-9",
+        newsContext: [
+            {
+                title: "نمایشگاه مدیکا 2019",
+                shortDescription:
+                    "نمایشگاه مدیکا آلمان معتبرترین و بزرگترین نمایشگاه جهان در زمینه محصولات و تجهیزات پزشکی می باشد که هر ساله در شهر دوسلدورف برگزار می گردد.",
+                description:
+                    "نمایشگاه مدیکا آلمان معتبرترین و بزرگترین نمایشگاه جهان در زمینه محصولات و تجهیزات پزشکی می باشد که هر ساله در شهر دوسلدورف برگزار می گردد. در سال 2019 نیز این نمایشگاه در تاریخ های 18 الی 21 نوامبر (27 الی",
+                locale: "fa-IR",
+            },
+        ],
+        image: "image5",
+        defaultImage: "default.png",
+        smallImage: "smallImage5",
+        createdBy: "user5",
+        type: "article",
+    },
+    {
+        code: "CODE-10",
+        newsContext: [
+            {
+                title: "نمایشگاه مدیکا 2019",
+                shortDescription:
+                    "نمایشگاه مدیکا آلمان معتبرترین و بزرگترین نمایشگاه جهان در زمینه محصولات و تجهیزات پزشکی می باشد که هر ساله در شهر دوسلدورف برگزار می گردد.",
+                description:
+                    "نمایشگاه مدیکا آلمان معتبرترین و بزرگترین نمایشگاه جهان در زمینه محصولات و تجهیزات پزشکی می باشد که هر ساله در شهر دوسلدورف برگزار می گردد. در سال 2019 نیز این نمایشگاه در تاریخ های 18 الی 21 نوامبر (27 الی",
+                locale: "fa-IR",
+            },
+        ],
+        image: "image5",
+        defaultImage: "default.png",
+        smallImage: "smallImage5",
+        createdBy: "user5",
+        type: "article",
+    },
+
 ];
 
 const newsPromise = new Promise(async (resolve, reject) => {

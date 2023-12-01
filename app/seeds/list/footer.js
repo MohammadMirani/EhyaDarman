@@ -3,6 +3,108 @@ const Models = require("../../mongo/models");
 const footerObject = [
   {
     locale: "fa-IR",
+    context: [
+      {
+        items: [
+          {
+            item: "کارخانه",
+            link: "/link",
+          },
+          {
+            item: "کلینیک خواب",
+            link: "/link",
+          },
+          {
+            item: "استخدام",
+            link: "/link",
+          },
+          {
+            item: "تماس با ما",
+            link: "/link",
+          },
+          {
+            item: "درباره ما",
+            link: "/link",
+          },
+        ],
+        section: "quickAccess",
+        title: "دسترسی سریع",
+      },
+      {
+        items: [
+          {
+            item: "دستگاه تنفسی بیمارستانی",
+            link: "link",
+          },
+          {
+            item: "دستگاه تنفسی خانگی",
+            link: "link",
+          },
+          {
+            item: "دستگاه تصویربرداری",
+            link: "link",
+          },
+          {
+            item: "اکسسوری",
+            link: "link",
+          },
+        ],
+        section: "productsCategory",
+        title: "دسته بندی محصولات",
+      },
+      {
+        items: [
+          {
+            item: "ماشین بیهوشی",
+          },
+          {
+            item: "ونتیلاتور ICU",
+          },
+          {
+            item: "پالس اکسی متر",
+          },
+          {
+            item: "دستگاه ام ار ای",
+          },
+        ],
+        section: "otherProducts",
+        title: "دیگر محصولات",
+      },
+      {
+        items: [
+          {
+            name: "address",
+            title: "آدرس",
+            icon: "icon",
+            item: "تهران، شریعی",
+            link: "",
+          },
+          {
+            name: "phone",
+            title: "تلفن",
+            icon: "icon",
+            item: "02100000000",
+            link: "",
+          },
+          {
+            name: "mobile",
+            title: "تلفن همراه",
+            icon: "icon",
+            item: "09120000000",
+            link: "",
+          },
+          {
+            name: "email",
+            title: "ایمیل",
+            icon: "icon",
+            item: "ehyadarman@gmail.com",
+            link: "",
+          },
+        ],
+        section: "contactUs",
+        title: "تماس با ما",
+      },
+    ],
     socialMedias: [
       { name: "whatsapp", title: "واتساپ", icon: "icon", link: "https://" },
       { name: "telegram", title: "تلگرام", icon: "icon", link: "https://" },
@@ -14,76 +116,6 @@ const footerObject = [
         title: "اینستاگرام",
         icon: "icon",
         link: "https://",
-      },
-    ],
-    contactUs: [
-      {
-        name: "address",
-        title: "آدرس",
-        icon: "icon",
-        value: "تهران، شریعی",
-        link: "",
-      },
-      {
-        name: "phone",
-        title: "تلفن",
-        icon: "icon",
-        value: "02100000000",
-        link: "",
-      },
-      {
-        name: "mobile",
-        title: "تلفن همراه",
-        icon: "icon",
-        value: "09120000000",
-        link: "",
-      },
-      {
-        name: "email",
-        title: "ایمیل",
-        icon: "icon",
-        value: "ehyadarman@gmail.com",
-        link: "",
-      },
-    ],
-    productsCategory: [
-      {
-        item: "دستگاه تنفسی بیمارستانی",
-        link: "link",
-      },
-      {
-        item: "دستگاه تنفسی خانگی",
-        link: "link",
-      },
-      {
-        item: "دستگاه تصویربرداری",
-        link: "link",
-      },
-      {
-        item: "اکسسوری",
-        link: "link",
-      },
-    ],
-    quickAccess: [
-      {
-        item: "کارخانه",
-        link: "/link",
-      },
-      {
-        item: "کلینیک خواب",
-        link: "/link",
-      },
-      {
-        item: "استخدام",
-        link: "/link",
-      },
-      {
-        item: "تماس با ما",
-        link: "/link",
-      },
-      {
-        item: "درباره ما",
-        link: "/link",
       },
     ],
   },

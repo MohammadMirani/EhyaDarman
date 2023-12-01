@@ -5,8 +5,8 @@ const authSchema = {
         password: Joi.string().required(),
     }),
     signup: Joi.object().keys({
-        firstname: Joi.string(),
-        lastname: Joi.string(),
+        firstName: Joi.string().required(),
+        lastName: Joi.string().required(),
         phone: Joi.string().required(),
         email: Joi.string().required(),
         password: Joi.string().required(),
@@ -17,6 +17,10 @@ const authSchema = {
     loginWithOtp: Joi.object().keys({
         phone: Joi.string().required(),
         otp: Joi.string().required(),
+        firstName: Joi.string(),
+        lastName: Joi.string(),
+        email: Joi.string(),
+        password: Joi.string(),
     }),
 };
 

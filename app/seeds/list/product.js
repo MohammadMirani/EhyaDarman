@@ -9,6 +9,12 @@ const productsObject = [
                 locale: "fa-IR",
             },
         ],
+        shortDescription: [
+            {
+                value: "دستگاه ماشین بیهوشی EDP-Neptune دستگاهی با قابلیت های فراوان و سطح تکنولوژی بالا می باشد.",
+                locale: "fa-IR",
+            },
+        ],
         defaultImage: "default.png",
         smallImage: "smallImage1",
         isBookmarked: true,
@@ -18,6 +24,12 @@ const productsObject = [
         name: [
             {
                 value: "EDP-TS NEO",
+                locale: "fa-IR",
+            },
+        ],
+        shortDescription: [
+            {
+                value: "دستگاه ماشین بیهوشی EDP-Neptune دستگاهی با قابلیت های فراوان و سطح تکنولوژی بالا می باشد.",
                 locale: "fa-IR",
             },
         ],
@@ -33,6 +45,12 @@ const productsObject = [
                 locale: "fa-IR",
             },
         ],
+        shortDescription: [
+            {
+                value: "دستگاه ماشین بیهوشی EDP-Neptune دستگاهی با قابلیت های فراوان و سطح تکنولوژی بالا می باشد.",
+                locale: "fa-IR",
+            },
+        ],
         defaultImage: "default.png",
         smallImage: "smallImage1",
         isBookmarked: true,
@@ -45,34 +63,60 @@ const productsObject = [
                 locale: "fa-IR",
             },
         ],
+        shortDescription: [
+            {
+                value: "دستگاه ماشین بیهوشی EDP-Neptune دستگاهی با قابلیت های فراوان و سطح تکنولوژی بالا می باشد.",
+                locale: "fa-IR",
+            },
+        ],
         defaultImage: "default.png",
         smallImage: "smallImage1",
         isBookmarked: true,
     },
     {
-        code: "EDP-5",
+        code: "34-Atlantamed-Dion",
         name: [
             {
                 value: "NeuViz 128 CT",
                 locale: "fa-IR",
             },
         ],
-        defaultImage: "defaultImage1",
+        shortDescription: [
+            {
+                value: "دستگاه ماشین بیهوشی EDP-Neptune دستگاهی با قابلیت های فراوان و سطح تکنولوژی بالا می باشد.",
+                locale: "fa-IR",
+            },
+        ],
+        defaultImage: "default.png",
+
         smallImage: "smallImage1",
-        isBookmarked: false,
+        isBookmarked: true,
     },
     {
-        code: "EDP-6",
+        code: "16-ResMed-AirCurve VAuto",
         name: [
             {
                 value: "Neusoft - Superstar 0.35T",
                 locale: "fa-IR",
             },
         ],
-        defaultImage: "defaultImage1",
+        shortDescription: [
+            {
+                value: "دستگاه ماشین بیهوشی EDP-Neptune دستگاهی با قابلیت های فراوان و سطح تکنولوژی بالا می باشد.",
+                locale: "fa-IR",
+            },
+        ],
+        defaultImage: "default.png",
         smallImage: "smallImage1",
-        isBookmarked: false,
+        isBookmarked: true,
     },
+
+
+
+
+
+
+
     {
         code: "EDP-7",
         name: [

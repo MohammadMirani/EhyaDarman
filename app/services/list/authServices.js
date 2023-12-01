@@ -10,16 +10,18 @@ authService.loginFunction = async (username, password) => {
       username,
       password
     );
+
     let isPasswordValid = false;
     if (findUser) {
       isPasswordValid = await bcrypt.compareSync(password, findUser.password);
     }
 
+
     if (isPasswordValid)
       return {
-        username: findUser.username,
-        firstname: findUser.firstname,
-        lastname: findUser.lastname,
+        phone: findUser.phone,
+        firstName: findUser.firstName,
+        lastName: findUser.lastName,
         id: findUser._id.toString(),
         isBanned: findUser.isBanned,
       };
@@ -33,21 +35,25 @@ authService.loginFunction = async (username, password) => {
 authService.loginByPhoneAndOTP = async (phone, otp) => {
   try {
     const findUser = await repository.userRepository.findUserByPhone(phone);
-    if (!findUser) {
-      await repository.userRepository.creatUser({ phone });
-    }
 
     const savedOtp = await redisClient.get(phone);
     const check = otp === savedOtp;
     if (!check) {
       return false;
     }
+
+
+    if( !findUser.isPhoneVerified){
+      await repository.userRepository.verifyPhone(phone)
+    }
+
     await redisClient.del(phone);
 
     return {
-      username: findUser.username,
-      firstname: findUser.firstname,
-      lastname: findUser.lastname,
+      phone: findUser.phone,
+      email: findUser.email,
+      firstName: findUser.firstName,
+      lastName: findUser.lastName,
       id: findUser._id.toString(),
       isBanned: findUser.isBanned,
     };
@@ -59,6 +65,27 @@ authService.loginByPhoneAndOTP = async (phone, otp) => {
 authService.getUserById = async (id) => {
   try {
     return await repository.userRepository.findUserById(id);
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
+};
+
+authService.otpLoginProcess = async (data) => {
+  try {
+    const isUser = await repository.userRepository.findUserByPhone(data.phone);
+
+    if (!isUser) {
+      if (data.phone && data.email) {
+        const checkRepetitiveInfo =
+          await repository.userRepository.checkUserExistence(data);
+        if (checkRepetitiveInfo) throw "اطلاعات وارد شده تکراری است.";
+
+        await repository.userRepository.creatUser(data);
+      } else {
+        throw "کاربر قبلا ثبت نام نکرده است، لطفا اطلاعات ضروری را وارد کنید.";
+      }
+    }
   } catch (e) {
     console.error(e);
     throw e;
@@ -100,7 +127,7 @@ authService.sendOtp = async (phone) => {
 
 authService.saveOtpInRedis = async (phone, otp) => {
   try {
-    await redisClient.setex(phone, 10, otp);
+    await redisClient.setex(phone, 180, otp);
     return true;
   } catch (e) {
     console.error(e);

@@ -7,10 +7,10 @@ productRepository.getBookmarkedProducts = async (locale) => {
     return await Models.Product.aggregate()
       .match({ isBookmarked: true })
       .addFields({
-        description: {
+        shortDescription: {
           $first: {
             $filter: {
-              input: "$description",
+              input: "$shortDescription",
               as: "item",
               cond: { $eq: ["$$item.locale", locale] },
             },
@@ -30,12 +30,10 @@ productRepository.getBookmarkedProducts = async (locale) => {
         code: 1,
         _id: 0,
         name: "$name.value",
-        smallImage: 1,
         defaultImage: { $concat : [DOT_ENV.DOCS_URL, "/products/", "$code" ,"/Pictures/", "$defaultImage"] },
-        description: "$description.value",
-        shortDescription: 1,
+        shortDescription: "$shortDescription.value",
       })
-        .limit(4)
+        .limit(6)
   } catch (e) {
     console.error("generalRepository.getMenu", e);
     throw e;

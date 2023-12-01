@@ -6,7 +6,7 @@ async function createSuperAdmin() {
     const superAdminUserName = DOT_ENV.SUPER_ADMIN_USER;
     const superAdminPassword = DOT_ENV.SUPER_ADMIN_PASSWORD;
 
-    console.log( DOT_ENV.MONGO_OBJECT, DOT_ENV.MONGO_URL );
+
 
     const findSuperAdmin = await Models.User.findOne({ username: superAdminUserName });
     if (!findSuperAdmin) {

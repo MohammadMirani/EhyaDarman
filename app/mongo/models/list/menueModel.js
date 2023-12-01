@@ -2,23 +2,23 @@ const mongoose = require("mongoose");
 const menuSchema = new mongoose.Schema(
     {
         locale: String,
-        tabs: [
+        items: [
             {
                 item: String,
                 link: String,
                 firstIndent: [
                     {
-                        name: String,
+                        item: String,
                         link: String,
                         secondIndent: [
                             {
-                                name: String,
+                                item: String,
                                 link: String,
                                 thirdIndent: [
                                     {
-                                        name: String,
+                                        item: String,
                                         link: String,
-                                        fourthIndent: [{ name: String, link: String }],
+                                        fourthIndent: [{ item: String, link: String }],
                                     },
                                 ],
                             },

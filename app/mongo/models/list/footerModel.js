@@ -2,28 +2,8 @@ const mongoose = require("mongoose");
 const footerSchema = new mongoose.Schema(
   {
     locale: String,
-    productsCategory: [
-      {
-        item: String,
-        link: String,
-      },
-    ],
-    quickAccess: [
-      {
-        item: String,
-        link: String,
-      },
-    ],
+    context: [{ items: [], section: String, title: String }],
     socialMedias: [{ name: String, title: String, icon: String, link: String }],
-    contactUs: [
-      {
-        name: String,
-        title: String,
-        icon: String,
-        value: String,
-        link: String,
-      },
-    ],
   },
   { timestamps: true }
 );

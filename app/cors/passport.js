@@ -24,12 +24,11 @@ passport.use(
   })
 );
 
-
 passport.use(
   "phoneOTP",
   new LocalStrategy(
     {
-      usernameField: "phone", // Use the "email" field for username
+      usernameField: "phone",
       passwordField: "otp",
     },
     async (phone, otp, done) => {
@@ -55,10 +54,18 @@ passport.use(
   )
 );
 passport.serializeUser((user, done) => {
-  done(null, { id: user.id });
+
+  done(null, {
+    id: user.id,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+    phone: user.phone,
+  });
 });
 
 passport.deserializeUser(async (userData, done) => {
+
   const user = await authServices.getUserById(userData.id);
   if (user?.isBanned) return done(null, false);
   done(null, userData);

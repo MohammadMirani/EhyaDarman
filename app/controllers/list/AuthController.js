@@ -1,6 +1,6 @@
 const { authServices } = require("../../services/index");
 const passport = require("passport");
-const { error, log } = require("winston");
+const repository = require("../../mongo/repository");
 
 class authController {
   constructor() {}
@@ -43,10 +43,12 @@ class authController {
 
   async checkAuth(req, res, next) {
     try {
-      if (req.isAuthenticated())
-        return res
-          .status(200)
-          .send({ message: "کاربر با موفقیت احراز هویت شده است." });
+      if (req.isAuthenticated()) {
+        return res.status(200).send({
+          message: "کاربر با موفقیت احراز هویت شده است.",
+          ...req.session.passport.user,
+        });
+      }
       return res.status(401).send({ message: "کاربر احراز هویت نشده است." });
     } catch (e) {
       console.error(e);
@@ -56,6 +58,14 @@ class authController {
 
   async signup(req, res, next) {
     try {
+      const isUser = await repository.userRepository.checkUserExistence(
+        req.body
+      );
+      if (isUser) {
+        return res
+          .status(402)
+          .send({ message: "ایمیل و یا شماره تلفن تکراری است." });
+      }
       await authServices.creatNewUser(req.body);
       return res.status(200).send({ message: "ثبت نام با موفقیت انجام شد." });
     } catch (e) {
@@ -69,9 +79,13 @@ class authController {
       const otp = await authServices.sendOtp(req.body.phone);
       await authServices.saveOtpInRedis(req.body.phone, otp);
 
-      return res
-          .status(200)
-          .send({ message: "کد راستی آزمایی با موفقیت ارسال شد." });
+      const isUser = await repository.userRepository.findUserByPhone(
+        req.body.phone
+      );
+      return res.status(200).send({
+        message: "کد راستی آزمایی با موفقیت ارسال شد.",
+        hasAccount: !!isUser,
+      });
     } catch (e) {
       console.error(e);
       return res.status(500).send({ message: "خطا در ارسال پیامک " });
@@ -80,10 +94,14 @@ class authController {
 
   async loginWithOtp(req, res, next) {
     try {
+      const isLogin = req.isAuthenticated();
+      if (isLogin)
+        return res.status(200).json({ message: "کاربر قبلا وارد شده است." });
+      await authServices.otpLoginProcess(req.body);
 
-      passport.authenticate("phoneOTP", (err, user, info) => {
+      await passport.authenticate("phoneOTP", (err, user, info) => {
         if (err) {
-          return res.status(500).json({ message: "خطای سرور." });
+          return res.status(500).json({ message: err ? err : "خطای سرور." });
         }
         if (!user) {
           return res.status(401).json({ message: info });
@@ -95,10 +113,9 @@ class authController {
           return res.status(200).json({ message: "با موفقیت وارد شدید." });
         });
       })(req, res, next);
-
     } catch (e) {
       console.error(e);
-      return res.status(500).send({ message: "خطا در ارسال پیامک " });
+      return res.status(500).send({ message: e ? e : "خطای سرور" });
     }
   }
 

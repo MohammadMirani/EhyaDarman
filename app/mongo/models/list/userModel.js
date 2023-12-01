@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema(
   {
-    fistName: String,
+    firstName: String,
     lastName: String,
-    // username: { type: String, unique: true },
     password: String,
     phone: { type: String, unique: true },
     email: { type: String, unique: true },
@@ -11,10 +10,13 @@ const userSchema = new mongoose.Schema(
     isBanned: { type: Boolean, default: false },
     lastLogin: String,
     isDeleted: { type: Boolean, default: false },
+    isPhoneVerified : {type :  Boolean , default : false},
+    isEmailVerified : {type :  Boolean , default : false}
   },
   { timestamps: true }
 );
 
 const userModel = mongoose.model("users", userSchema);
+
 
 module.exports.userModel = userModel;
