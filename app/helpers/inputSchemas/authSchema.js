@@ -21,6 +21,7 @@ const authSchema = {
         lastName: Joi.string(),
         email: Joi.string(),
         password: Joi.string(),
+        requestId: Joi.string().required(),
     }),
 };
 

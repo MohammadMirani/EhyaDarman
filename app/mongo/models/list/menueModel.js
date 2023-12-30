@@ -6,19 +6,19 @@ const menuSchema = new mongoose.Schema(
             {
                 item: String,
                 link: String,
-                firstIndent: [
+                children: [
                     {
                         item: String,
                         link: String,
-                        secondIndent: [
+                        children: [
                             {
                                 item: String,
                                 link: String,
-                                thirdIndent: [
+                                children: [
                                     {
                                         item: String,
                                         link: String,
-                                        fourthIndent: [{ item: String, link: String }],
+                                        children: [{ item: String, link: String }],
                                     },
                                 ],
                             },

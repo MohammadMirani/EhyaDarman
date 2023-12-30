@@ -85,6 +85,7 @@ class authController {
       return res.status(200).send({
         message: "کد راستی آزمایی با موفقیت ارسال شد.",
         hasAccount: !!isUser,
+        requestId : "125"
       });
     } catch (e) {
       console.error(e);
