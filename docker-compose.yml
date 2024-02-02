@@ -14,6 +14,13 @@ services:
       - REDIS_URL=redis
       - REDIS_PORT=6379
       - REDIS_IP=127.0.0.1
+      - SUPER_ADMIN_USER=root
+      - SUPER_ADMIN_PASSWORD=password
+      - PORT=8000
+      - HAS_CLUSTER=false
+      - SESSION_SECRET_KEY=fjdu434687gshfd
+      - SESSION_LIFETIME_DAYS=7
+      - DOCS_URL=http://45.159.208.49/docs
 
 
   mongo:

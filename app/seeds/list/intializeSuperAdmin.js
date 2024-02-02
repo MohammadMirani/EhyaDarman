@@ -7,8 +7,8 @@ async function createSuperAdmin() {
     const superAdminPassword = DOT_ENV.SUPER_ADMIN_PASSWORD;
 
 
-
     const findSuperAdmin = await Models.User.findOne({ username: superAdminUserName });
+
     if (!findSuperAdmin) {
         const saltRounds = 10;
         const hash = bcrypt.hashSync(superAdminPassword, saltRounds);
