@@ -111,7 +111,6 @@ const productSchema = new mongoose.Schema(
     isBookmarked: { type: Boolean, default: false },
     isDeleted: { type: Boolean, default: false },
   },
-
   { timestamps: true }
 );
 

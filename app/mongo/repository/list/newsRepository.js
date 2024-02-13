@@ -1,8 +1,8 @@
 const Models = require("../../models");
 const newsRepository = {};
-const convertDateToPersian = require("../../../helpers/dateConvertion");
-const jalali = require("jalali-moment");
+const dataConversion = require("../../../helpers/dataConversion");
 const DOT_ENV = require("../../../configs/general");
+
 newsRepository.getLatestNews = async (locale) => {
     try {
         const newsList = await Models.News.aggregate()
@@ -36,7 +36,7 @@ newsRepository.getLatestNews = async (locale) => {
         return newsList.map((el) => {
             return {
                 ...el,
-                createdAt: convertDateToPersian(el.createdAt),
+                createdAt: dataConversion.convertToPersianDate(el.createdAt),
                 type: typeObject[el.type],
 
             };

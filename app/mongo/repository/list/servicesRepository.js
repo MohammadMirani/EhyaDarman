@@ -6,12 +6,12 @@ servicesRepository.getServicesSummary = async (locale) => {
   try {
     return {
       images: [
-        { url: DOT_ENV.DOCS_URL + "/services/" + "services-1.jpg" },
-        { url: DOT_ENV.DOCS_URL + "/services/" + "services-2.jpg" },
-        { url: DOT_ENV.DOCS_URL + "/services/" + "services-3.jpg" },
-        { url: DOT_ENV.DOCS_URL + "/services/" + "services-4.jpg" },
-        { url: DOT_ENV.DOCS_URL + "/services/" + "services-5.jpg" },
-        { url: DOT_ENV.DOCS_URL + "/services/" + "services-6.jpg" },
+        { url: DOT_ENV.DOCS_URL + "/services/" + "services_1.jpg" },
+        { url: DOT_ENV.DOCS_URL + "/services/" + "services_2.jpg" },
+        { url: DOT_ENV.DOCS_URL + "/services/" + "services_3.jpg" },
+        { url: DOT_ENV.DOCS_URL + "/services/" + "services_4.jpg" },
+        { url: DOT_ENV.DOCS_URL + "/services/" + "services_5.jpg" },
+        { url: DOT_ENV.DOCS_URL + "/services/" + "services_6.jpg" },
       ],
       sections: [
         {
