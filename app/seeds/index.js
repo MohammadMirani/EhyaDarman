@@ -8,6 +8,8 @@ const seedsPromise = new Promise(async (resolve, reject) => {
         promiseList.push(require("./list/partners"));
         promiseList.push(require("./list/news"));
         promiseList.push(require("./list/category"));
+        promiseList.push(require("./list/subCategory"));
+        promiseList.push(require("./list/brand"));
         promiseList.push(require("./list/companyInfo"));
         promiseList.push(require("./list/product"));
         // promiseList.push()

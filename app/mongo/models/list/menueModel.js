@@ -6,19 +6,25 @@ const menuSchema = new mongoose.Schema(
             {
                 item: String,
                 link: String,
+                code: String,
                 children: [
                     {
                         item: String,
                         link: String,
+                        code: String,
                         children: [
                             {
                                 item: String,
                                 link: String,
+                                code: String,
                                 children: [
                                     {
                                         item: String,
                                         link: String,
-                                        children: [{ item: String, link: String }],
+                                        code: String,
+                                        children: [{
+                                            item: String, link: String, code: String,
+                                        }],
                                     },
                                 ],
                             },

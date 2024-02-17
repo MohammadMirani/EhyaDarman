@@ -7,3 +7,8 @@ ProductRouter.get("/list", validationMiddleWare(productSchema.list ,"query"), Pr
 ProductRouter.get("/singleProduct", validationMiddleWare(productSchema.list ,"query"), ProductController.getSingleProduct);
 
 module.exports = ProductRouter;
+
+
+//[brand-category-sub_category-product_code]
+//1-12-2-3
+//response => {products:[], categories :[]}

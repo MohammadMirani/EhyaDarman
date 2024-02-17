@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const subCategorySchema = new mongoose.Schema(
     {
         code: { type: String, required: true, unique: true },
-        categoryCode: { type: String, required: true, unique: true },
+        categoryCode: { type: String, required: true, },
         name: [
             {
                 locale: String,
@@ -16,6 +16,6 @@ const subCategorySchema = new mongoose.Schema(
     { timestamps: true },
 );
 
-const subCategoryModel = mongoose.model("sub_categories", subCategorySchema);
+const subCategoryModel = mongoose.model("subCategories", subCategorySchema);
 
 module.exports.subCategoryModel = subCategoryModel;

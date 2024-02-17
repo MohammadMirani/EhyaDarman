@@ -17,6 +17,42 @@ generalService.getFooter = async (locale) => {
     throw e;
   }
 };
+
+generalService.generateBrandListForFilter = async (locale) => {
+  try {
+    return await repository.generalRepository.getBrandList(locale);
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
+};
+generalService.generateCategoryListForFilter = async (locale, brandCode) => {
+  try {
+    return await repository.generalRepository.getCategoryList(
+      locale,
+      brandCode
+    );
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
+};
+generalService.generateSubCategoryListForFilter = async (
+  locale,
+  brandCode,
+  categoryCode
+) => {
+  try {
+    return await repository.generalRepository.getSubCategoryList(
+      locale,
+      brandCode,
+      categoryCode
+    );
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
+};
 generalService.getLandingPage = async (locale) => {
   try {
     const sliderPromise = repository.generalRepository.getSlider(locale);
@@ -26,7 +62,8 @@ generalService.getLandingPage = async (locale) => {
       repository.generalRepository.getSummaryCompanyInfo(locale);
     const bookmarkedProductsPromise =
       repository.productRepository.getBookmarkedProducts(locale);
-    const servicesDetailsPromise = repository.servicesRepository.getServicesSummary(locale);
+    const servicesDetailsPromise =
+      repository.servicesRepository.getServicesSummary(locale);
 
     const [slider, bookmarkedProduct, news, companyInfo, servicesDetails] =
       await Promise.all([

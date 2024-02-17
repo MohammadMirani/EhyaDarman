@@ -3,6 +3,7 @@ const Models = {};
 Models.Attribute = require("./list/attributeModel").attributeModel;
 Models.Brand = require("./list/brandModel").brandModel;
 Models.Category = require("./list/categoryModel").categoryModel;
+Models.SubCategory = require("./list/subCategoryModel").subCategoryModel;
 Models.CompanyInfo = require("./list/companyInfoModel").companyModel;
 Models.Customer = require("./list/customerModel").customerModel;
 Models.Footer = require("./list/footerModel").footerModel;

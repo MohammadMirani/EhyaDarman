@@ -12,6 +12,8 @@ const brandSchema = new mongoose.Schema(
                 value: String,
             },
         ],
+        image: String,
+        icon: String,
         isActive: { type: Boolean, default: true },
         isDeleted: { type: Boolean, default: false },
     },
