@@ -7,7 +7,7 @@ const authSchema = {
         code: Joi.string().allow("")
     }),
     singleProduct: Joi.object().keys({
-        product_code: Joi.string().required(),
+        productCode: Joi.string().required(),
     }),
 };
 

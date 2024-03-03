@@ -20,7 +20,7 @@ services:
       - HAS_CLUSTER=false
       - SESSION_SECRET_KEY=fjdu434687gshfd
       - SESSION_LIFETIME_DAYS=7
-      - DOCS_URL=http://45.159.208.49/docs
+      - DOCS_URL=http://87.107.105.66/docs
 
 
   mongo:

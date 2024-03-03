@@ -243,9 +243,9 @@ const menuObject = [
                 item: "اخبار و مقالات",
                 firstIndent: [],
             },
-            {
-                item: "فرصت های شغلی",
-            },
+            // {
+            //     item: "فرصت های شغلی",
+            // },
             {
                 item: "درباره ما",
                 firstIndent: [

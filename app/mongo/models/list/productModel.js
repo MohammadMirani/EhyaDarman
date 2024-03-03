@@ -2,12 +2,6 @@ const mongoose = require("mongoose");
 const productSchema = new mongoose.Schema(
   {
     code: { type: String, required: true, unique: true },
-    title: [
-      {
-        value: String,
-        locale: String,
-      },
-    ],
     name: [
       {
         value: String,
@@ -19,20 +13,10 @@ const productSchema = new mongoose.Schema(
     subCategoryCode: { type: String, required: true },
     defaultImage: String,
     smallImage: String,
-    defaultVideo: String,
-    defaultPdf: String,
-    articles: [
-      {
-        articleCode: String,
-        articleId: mongoose.Types.ObjectId,
-        isActive: Boolean,
-        createdAt: String,
-      },
-    ],
     images: [
       {
-        fileName: String,
-        isActive: Boolean,
+        name: String,
+        isDefault: Boolean,
         title: [
           {
             value: String,
@@ -43,8 +27,8 @@ const productSchema = new mongoose.Schema(
     ],
     videos: [
       {
-        fileName: String,
-        isActive: Boolean,
+        name: String,
+        isDefault: Boolean,
         title: [
           {
             value: String,
@@ -55,8 +39,8 @@ const productSchema = new mongoose.Schema(
     ],
     pdfs: [
       {
-        fileName: String,
-        isActive: Boolean,
+        name: String,
+        isDefault: Boolean,
         title: [
           {
             value: String,
@@ -65,46 +49,59 @@ const productSchema = new mongoose.Schema(
         ],
       },
     ],
-    isActive: Boolean,
-    toBeOffered: [{ ref: mongoose.Types.ObjectId, code: String }],
-    similarProducts: [{ ref: mongoose.Types.ObjectId, code: String }],
-    description: [{ value: String, locale: String }],
     shortDescription: [{ value: String, locale: String }],
-    introduction: [{ value: String, locale: String }],
-    uniqueProperties: [
-      { locale: String, items: [{ value: String, order: Number }] },
+    description: [
+      {
+        locale: String,
+        data: { title: String, text: String, items: [{ text: String }] },
+      },
+    ],
+    introduction: [
+      {
+        locale: String,
+        data: {
+          title: String,
+          text: String,
+          video: String,
+          image: String,
+          items: [{ text: String }],
+        },
+      },
+    ],
+    specializedExamination: [
+      {
+        locale: String,
+        data: [
+          {
+            title: String,
+            text: String,
+            image: String,
+            video: String,
+            index: Number,
+          },
+        ],
+      },
     ],
     technicalData: [
       {
         locale: String,
         attributes: [
           {
-            order: Number,
-            attributeGroup: [
-              {
-                title: String,
-                items: [
-                  {
-                    property: String,
-                    unit: String,
-                    values: [String],
-                    order: Number,
-                  },
-                ],
-              },
-            ],
+            key: String,
+            values: [String],
           },
         ],
       },
     ],
-    howToUse: [{ value: String, locale: String }], //todo
+    howToUse: [{ locale: String, items: [{ value: String }] }],
     frequentlyAskedQuestions: [
       {
         locale: String,
         questions: [{ question: String, answer: String, order: Number }],
       },
     ],
-    ageGroups: String,
+    toBeOffered: [{ code: String }],
+    similarProducts: [{ code: String }],
     isBookmarked: { type: Boolean, default: false },
     isDeleted: { type: Boolean, default: false },
   },

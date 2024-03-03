@@ -1,4 +1,5 @@
 const Services = require("../../services/index");
+const Repository = require("../../mongo/repository/index");
 
 class ProductController {
   constructor() {}
@@ -21,7 +22,7 @@ class ProductController {
 
       const banner = {
         title: "محصول مورد نظر خود را پیدا کنید",
-        image: "http://45.159.208.49/docs/slider/image_2.jpg",
+        image: "http://45.159.208.49/docs/banners/productList/banner.jpg",
       };
 
       res.send({
@@ -38,7 +39,7 @@ class ProductController {
   async getSingleProduct(req, res, next) {
     try {
       const locale = req.query.locale ? req.query.locale : "fa-IR";
-      const productInfo = await Services.productServices.singleProduct(
+      const productInfo = await Repository.productRepository.getSingleProduct(
         locale,
         req.query.productCode
       );
