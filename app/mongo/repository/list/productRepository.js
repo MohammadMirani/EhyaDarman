@@ -117,7 +117,8 @@ productRepository.getProductList = async (filter) => {
                 count: "$count.count",
             });
 
-        return await query.exec();
+        const result = await query.exec()
+        return result[0];
     } catch (e) {
         console.error(e);
         throw e;
@@ -245,6 +246,15 @@ productRepository.getSingleProduct = async (locale, productCode) => {
                                 ],
                             },
                             isDefault: "$$item.isDefault",
+                            title: {
+                                $first : {
+                                    $filter : {
+                                        input : "$$item.title",
+                                        as: "item_2",
+                                        cond: {$eq : ["$$item_2.locale", locale]}
+                                    }
+                                }
+                            }
                         },
                     },
                 },
@@ -330,7 +340,17 @@ productRepository.getSingleProduct = async (locale, productCode) => {
                 technicalData: "$technicalData.attributes",
                 images: 1,
                 videos: 1,
-                pdfs: 1,
+                pdfs: {
+                    $map : {
+                        input: "$pdfs",
+                        as: "item",
+                        in :{
+                            image: "$$item.image",
+                            isDefault: "$$item.isDefault",
+                            title: "$$item.title.value"
+                        }
+                    }
+                },
                 similarProducts: 1,
                 frequentlyAskedQuestions: "$frequentlyAskedQuestions.questions",
             })
@@ -350,7 +370,7 @@ productRepository.getSingleProduct = async (locale, productCode) => {
                                 $concat: [
                                     DOT_ENV.DOCS_URL,
                                     "/products/",
-                                    "$code",
+                                    "$$item.code",
                                     "/pictures/",
                                     "$$item.smallImage",
                                 ],

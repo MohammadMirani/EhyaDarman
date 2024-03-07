@@ -1,6 +1,7 @@
 const Models = require("../../models");
 const generalRepository = {};
 const DOT_ENV = require("../../../configs/general");
+const Joi = require("joi");
 
 generalRepository.getMenu = async (locale) => {
   try {
@@ -122,7 +123,7 @@ generalRepository.getBrandList = async (locale) => {
   }
 };
 
-generalRepository.getCategoryList = async (locale, brandCode,) => {
+generalRepository.getCategoryList = async (locale, brandCode) => {
   try {
     const completeBrandCode = "BRD-" + brandCode;
     return await Models.Category.aggregate()
@@ -153,11 +154,19 @@ generalRepository.getCategoryList = async (locale, brandCode,) => {
   }
 };
 
-generalRepository.getSubCategoryList = async (locale, brandCode, categoryCode) => {
+generalRepository.getSubCategoryList = async (
+  locale,
+  brandCode,
+  categoryCode
+) => {
   try {
-    const completeCategoryCode = "CAT-" + categoryCode;;
+    const completeCategoryCode = "CAT-" + categoryCode;
     return await Models.SubCategory.aggregate()
-      .match({ isDeleted: false, isActive: true, categoryCode: completeCategoryCode })
+      .match({
+        isDeleted: false,
+        isActive: true,
+        categoryCode: completeCategoryCode,
+      })
       .addFields({
         name: {
           $filter: {
@@ -178,6 +187,156 @@ generalRepository.getSubCategoryList = async (locale, brandCode, categoryCode) =
         code: { $concat: [brandCode, "-", categoryCode, "-", "$code"] },
         _id: 0,
       });
+  } catch (e) {
+    console.error("generalRepository.getSummaryCompanyIno", e);
+    throw e;
+  }
+};
+
+generalRepository.getContactUsInfo = async (locale) => {
+  try {
+    const query = await Models.ContactUs.aggregate()
+      .match({ locale: locale })
+      .project({
+        banner: {
+          image: {
+            $concat: [DOT_ENV.DOCS_URL, "/contactUs/", "$banner.image"],
+          },
+          title: "$banner.title",
+        },
+        formImage: {
+          $concat: [DOT_ENV.DOCS_URL, "/contactUs/", "$formImage"],
+        },
+      });
+    return query[0];
+  } catch (e) {
+    console.error("generalRepository.getSummaryCompanyIno", e);
+    throw e;
+  }
+};
+
+generalRepository.getBranchesInfo = async (locale) => {
+  try {
+    return await Models.Brnach.aggregate()
+      .lookup({
+        from: "cities",
+        localField: "cityCode",
+        foreignField: "code",
+        as: "city",
+      })
+      .unwind({ path: "$city" })
+      .addFields({ city: "$city.name" })
+      .addFields({
+        title: {
+          $first: {
+            $filter: {
+              input: "$title",
+              as: "item",
+              cond: { $eq: ["$$item.locale", locale] },
+            },
+          },
+        },
+        address: {
+          $first: {
+            $filter: {
+              input: "$address",
+              as: "item",
+              cond: { $eq: ["$$item.locale", locale] },
+            },
+          },
+        },
+        city: {
+          $first: {
+            $filter: {
+              input: "$city",
+              as: "item",
+              cond: { $eq: ["$$item.locale", locale] },
+            },
+          },
+        },
+      })
+      .project({
+        city: "$city.value",
+        cityCode: 1,
+        address: "$address.value",
+        title: "$title.value",
+        code: 1,
+        phone: 1,
+        mobile: 1,
+        fax: 1,
+        website: 1,
+        email: 1,
+        image: {
+          $concat: [DOT_ENV.DOCS_URL, "/branch/", "$image"],
+        },
+        isDefault: 1,
+        socialMedias: 1,
+      });
+  } catch (e) {
+    console.error("generalRepository.getSummaryCompanyIno", e);
+    throw e;
+  }
+};
+
+generalRepository.getCitiesList = async (locale) => {
+  try {
+    return await Models.City.aggregate()
+      .project({
+        code: 1,
+        title: {
+          $first: {
+            $filter: {
+              input: "$name",
+              as: "item",
+              cond: { $eq: ["$$item.locale", locale] },
+            },
+          },
+        },
+      })
+      .project({
+        code: 1,
+        title: "$title.value",
+      });
+  } catch (e) {
+    console.error("generalRepository.getSummaryCompanyIno", e);
+    throw e;
+  }
+};
+
+generalRepository.getBranchesList = async (locale) => {
+  try {
+    return await Models.Brnach.aggregate()
+      .project({
+        code: 1,
+        title: {
+          $first: {
+            $filter: {
+              input: "$title",
+              as: "item",
+              cond: { $eq: ["$$item.locale", locale] },
+            },
+          },
+        },
+      })
+      .project({
+        code: 1,
+        title: "$title.value",
+      });
+  } catch (e) {
+    console.error("generalRepository.getSummaryCompanyIno", e);
+    throw e;
+  }
+};
+
+generalRepository.registerRequestFunction = async (req) => {
+  try {
+    return await Models.Request.create({
+      fullName: req.body.fullName,
+      email: req.body.email,
+      phone: req.body.phone,
+      city: req.body.city,
+      description: req.body.description,
+    });
   } catch (e) {
     console.error("generalRepository.getSummaryCompanyIno", e);
     throw e;

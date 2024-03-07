@@ -105,18 +105,35 @@ const footerObject = [
         title: "تماس با ما",
       },
     ],
+
     socialMedias: [
-      { name: "whatsapp", title: "واتساپ", icon: "icon", link: "https://" },
-      { name: "telegram", title: "تلگرام", icon: "icon", link: "https://" },
-      { name: "linkedin", title: "لینکدین", icon: "icon", link: "https://" },
+      {
+        name: "linkedin",
+        title: "لینکدین",
+        icon: "icon",
+        link: "https://www.linkedin.com/company/ehya-darman-pishrafteh-co-edp?originalSubdomain=ir",
+      },
       { name: "pinterest", title: "پینترست", icon: "icon", link: "https://" },
-      { name: "twitter", title: "توییتر", icon: "icon", link: "https://" },
+      {
+        name: "twitter",
+        title: "توییتر",
+        icon: "icon",
+        link: "https://twitter.com/ehyadarman",
+      },
       {
         name: "instagram",
         title: "اینستاگرام",
         icon: "icon",
-        link: "https://",
+        link: "https://www.instagram.com/ehya_darman_pishrafteh/",
       },
+      {
+        name: "facebook",
+        title: "فیسبوک",
+        icon: "icon",
+        link: "https://www.facebook.com/EhyaDarmanPishrafteedp",
+      },
+      { name: "whatsapp", title: "واتساپ", icon: "icon", link: "https://" },
+      { name: "telegram", title: "تلگرام", icon: "icon", link: "https://" },
     ],
   },
 ];

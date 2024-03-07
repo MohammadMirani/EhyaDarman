@@ -14,5 +14,9 @@ Models.Partners = require("./list/partnersModel").partnerModel;
 Models.Product = require("./list/productModel").productModel;
 Models.Slider = require("./list/sliderModel").sliderModel;
 Models.User = require("./list/userModel").userModel;
+Models.ContactUs = require("./list/contactUsModel").contactUsModel;
+Models.Brnach = require("./list/brancheModel").branchModel;
+Models.City = require("./list/cityModel").cityModel;
+Models.Request = require("./list/requestModel").requestModel;
 
 module.exports = Models;

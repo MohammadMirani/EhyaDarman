@@ -433,6 +433,36 @@ const productsObject = [
           },
         ],
       },
+      {
+        name: "image_3.jpg",
+        isDefault: false,
+        title: [
+          {
+            value: "",
+            locale: "fa-IR",
+          },
+        ],
+      },
+      {
+        name: "image_4.jpg",
+        isDefault: false,
+        title: [
+          {
+            value: "",
+            locale: "fa-IR",
+          },
+        ],
+      },
+      {
+        name: "image_5.jpg",
+        isDefault: false,
+        title: [
+          {
+            value: "",
+            locale: "fa-IR",
+          },
+        ],
+      },
     ],
     videos: [
       {
@@ -455,10 +485,8 @@ const productsObject = [
           },
         ],
       },
-    ],
-    pdfs: [
       {
-        name: "file_1.pdf",
+        name: "video_3.mp4",
         isDefault: false,
         title: [
           {
@@ -468,11 +496,34 @@ const productsObject = [
         ],
       },
       {
+        name: "video_4.mp4",
+        isDefault: false,
+        title: [
+          {
+            value: "",
+            locale: "fa-IR",
+          },
+        ],
+      },
+
+    ],
+    pdfs: [
+      {
+        name: "file_1.pdf",
+        isDefault: false,
+        title: [
+          {
+            value: "راهنمای ضدعفونی سازی دستگاه ونتیلاتور",
+            locale: "fa-IR",
+          },
+        ],
+      },
+      {
         name: "file_2.pdf",
         isDefault: true,
         title: [
           {
-            value: "",
+            value: "دستورالعمل حضور در مراکز درمانی - تنفسی",
             locale: "fa-IR",
           },
         ],

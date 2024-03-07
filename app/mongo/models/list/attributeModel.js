@@ -19,5 +19,3 @@ const attributeSchema = new mongoose.Schema(
 const attributeModel = mongoose.model("attributes", attributeSchema);
 
 module.exports.attributeModel = attributeModel;
-
-//[{ locale: String, attribute: [{ attributeGroup: [{ title: String, items: [{property :String , unit: }] }] }] }]

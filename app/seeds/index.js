@@ -12,6 +12,9 @@ const seedsPromise = new Promise(async (resolve, reject) => {
         promiseList.push(require("./list/brand"));
         promiseList.push(require("./list/companyInfo"));
         promiseList.push(require("./list/product"));
+        promiseList.push(require("./list/contactUs"));
+        promiseList.push(require("./list/branch"));
+        promiseList.push(require("./list/city"));
         // promiseList.push()
 
         await Promise.all(promiseList);
